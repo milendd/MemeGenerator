@@ -1,0 +1,45 @@
+body {
+    background: white; /*#88dad3;*/
+}
+
+#nav, main, footer {
+    margin: 10px;
+    padding: 5px;
+}
+
+#nav {
+    border: 1px solid black;
+}
+
+footer {
+   position: absolute;
+   bottom: 0;
+   width: 90%;
+}
+
+.nav {
+    float: left;
+    line-height: 30px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-nav {
+    margin-left: 10px;
+}
+
+#user-settings {
+    float: right;
+    line-height: 30px;
+}
+
+.logout-form {
+    display: inline;
+}
+
+.clearfix {
+    clear: both;
+}
+
