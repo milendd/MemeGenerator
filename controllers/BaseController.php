@@ -12,7 +12,7 @@ abstract class BaseController {
         $this->actionName = $actionName;
         $this->onInit();
 		
-		if (isset($_SESSION['user'])){
+		if (isset($_SESSION['user'])) {
 			$this->isLoggedIn = true;
 		}
     }
@@ -79,7 +79,7 @@ abstract class BaseController {
     }
 	
 	function authorize($msg) {
-		if (!$this->isLoggedIn){
+		if (!$this->isLoggedIn) {
 			$this->addErrorMessage($msg);
 			$this->redirect('account', 'login');
 		}

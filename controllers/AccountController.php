@@ -8,33 +8,33 @@ class AccountController extends BaseController {
     }
     
     public function register() {
-        if ($this->isPost()){
+        if ($this->isPost()) {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $email = $_POST['email'];
             
-            if ($this->accountModel->register($username, $password, $email)){
+            if ($this->accountModel->register($username, $password, $email)) {
                 $_SESSION['user'] = $username;
                 $this->addInfoMessage("Registration successfull!");
                 $this->redirect("home");
             }
-            else{
+            else {
                 $this->addErrorMessage("Register failed! The username length should be greater than 2, or username is already taken");
             }
         }
     }
     
     public function login() {
-        if ($this->isPost()){
+        if ($this->isPost()) {
             $username = $_POST['username'];
             $password = $_POST['password'];
             
-            if ($this->accountModel->login($username, $password)){
+            if ($this->accountModel->login($username, $password)) {
                 $_SESSION['user'] = $username;
                 $this->addInfoMessage("Login successfull!");
                 $this->redirect("home");
             }
-            else{
+            else {
                 $this->addErrorMessage("Login failed!");
             }
         }
