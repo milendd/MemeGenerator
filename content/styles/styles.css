@@ -95,3 +95,7 @@ button, input, textarea {
     background-color: #e2e6ea;
     text-decoration: none;
 }
+
+.template-img {
+    width: 300px;
+}

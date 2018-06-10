@@ -11,7 +11,8 @@
 <body>
     <div id="nav">
         <a class="nav navbar-brand" href="<?= BASE_HOST ?>">Meme generator</a>
-        <a class="nav navbar-nav" href="<?= BASE_HOST ?>/users">Users</a></li>
+        <a class="nav navbar-nav" href="<?= BASE_HOST ?>/users">Users</a>
+        <a class="nav navbar-nav" href="<?= BASE_HOST ?>/templates">Templates</a>
 
         <div id="user-settings">
             <?php if ($this->isLoggedIn) :?>
