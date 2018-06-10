@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2018 at 10:16 PM
+-- Generation Time: Jun 10, 2018 at 11:31 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -27,9 +27,56 @@ USE `meme_system`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment` varchar(1000) NOT NULL,
+  `meme_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_comments_memes_idx` (`meme_id`),
+  KEY `fk_comments_users_idx` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `memes`
+--
+
+DROP TABLE IF EXISTS `memes`;
+CREATE TABLE IF NOT EXISTS `memes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(200) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_memes_users_idx` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `templates`
+--
+
+DROP TABLE IF EXISTS `templates`;
+CREATE TABLE IF NOT EXISTS `templates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `file_name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(200) NOT NULL,
@@ -38,7 +85,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_admin` bit(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `pass_hash`, `email`, `is_admin`) VALUES
+(1, 'milen_d', '$2y$10$dPGVMfTYS278qbwHqWpcy.D2eJnNQzsyqZHdykKqN5Oc1JXKw4ZGC', 'milen_d@abv.bg', b'1');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
