@@ -12,12 +12,11 @@ class UsersController extends BaseController {
         $this->users = $this->userModel->getAll();
     }
     
-    public function view($username) {
+    public function view($id = 0) {
         $this->title = "Profile";
-        $this->selectedUser = $this->userModel->find($username);
+        $this->selectedUser = $this->userModel->find($id);
         if (!isset($this->selectedUser)) {
             $this->addErrorMessage("No such user!");
-            $this->redirect("users");
         }
     }
 }

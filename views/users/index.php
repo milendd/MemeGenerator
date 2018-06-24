@@ -4,7 +4,7 @@
     <?php foreach ($this->users as $user) : ?>
         <tr>
             <td>
-                <a href="<?= BASE_HOST ?>/users/view/<?= $user['username']?>">
+                <a href="<?= BASE_HOST ?>/users/view/<?= $user['id']?>">
                     <?= htmlspecialchars($user['username'])?>
                 </a>
             </td>

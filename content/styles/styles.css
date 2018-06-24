@@ -11,6 +11,44 @@ body {
     border: 1px solid black;
 }
 
+#messages {
+    text-align: center;
+}
+
+#messages .msg {
+    padding: 8px;
+    font-size: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.msg.info {
+    background-color: rgb(172, 172, 172);
+    color: white;
+}
+
+.msg.success {
+    background-color: rgb(16, 180, 16);
+    color: white;
+}
+
+.msg.error {
+    background-color: red;
+    color: white;
+}
+
+.close-btn {
+    cursor: pointer;
+    margin-left: 50px;
+    color: black;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    color: #662;
+}
+
 footer {
    position: absolute;
    bottom: 0;

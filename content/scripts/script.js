@@ -1,3 +1,6 @@
 $(function() {
-    console.log( "ready!" );
+    $('#messages .close-btn').click(function(e) {
+        var parent = $(this).parent();
+        parent.remove();
+    });
 });

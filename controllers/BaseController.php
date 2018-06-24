@@ -70,7 +70,7 @@ abstract class BaseController {
         return $_SERVER['REQUEST_METHOD'] == 'POST';
     }
 
-    function addMessage($msg, $type) {
+    function addMessage($msg, $type = 'info') {
         if (!isset($_SESSION['messages'])) {
             $_SESSION['messages'] = array();
         };
@@ -87,6 +87,10 @@ abstract class BaseController {
 
     function addInfoMessage($msg) {
         $this->addMessage($msg, 'info');
+    }
+
+    function addSuccessMessage($msg) {
+        $this->addMessage($msg, 'success');
     }
 
     function addErrorMessage($msg) {
