@@ -11,3 +11,7 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'meme_system');
+
+define("IMAGE_PATH", '/content/images');
+define("CSS_PATH", '/content/styles');
+define("SCRIPTS_PATH", '/content/scripts');

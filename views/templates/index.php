@@ -3,6 +3,6 @@
 <?php foreach ($this->templates as $template) : ?>
     <div>
         <img title="<?= htmlspecialchars($template['name']) ?>" class="template-img"
-            src="<?= BASE_HOST ?>/content/images/templates/<?= $template['file_name'] ?>"/>
+            src="<?= $this->templatesPath . '/' . $template['file_name'] ?>"/>
     </div>
 <?php endforeach ?>

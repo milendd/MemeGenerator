@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2018 at 12:16 PM
+-- Generation Time: Jun 26, 2018 at 09:28 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -34,6 +34,7 @@ DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `comment` varchar(1000) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `meme_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -51,10 +52,19 @@ DROP TABLE IF EXISTS `memes`;
 CREATE TABLE IF NOT EXISTS `memes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_name` varchar(200) NOT NULL,
+  `title` varchar(500) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_memes_users_idx` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `memes`
+--
+
+INSERT INTO `memes` (`id`, `file_name`, `title`, `created_at`, `user_id`) VALUES
+(1, '2byhpu7f.jpg', 'First meme :)', '2018-06-26 18:33:21', 1);
 
 -- --------------------------------------------------------
 

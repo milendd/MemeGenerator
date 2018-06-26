@@ -2,9 +2,11 @@
 
 class UsersController extends BaseController {
     private $userModel;
+    private $memeModel;
 
     public function onInit() {
         $this->userModel = new UserModel();
+        $this->memeModel = new MemeModel();
         $this->title = "Users";
     }
     
@@ -17,6 +19,9 @@ class UsersController extends BaseController {
         $this->selectedUser = $this->userModel->find($id);
         if (!isset($this->selectedUser)) {
             $this->addErrorMessage("No such user!");
+            return;
         }
+        
+        $this->memes = $this->memeModel->getMemesByUser($id);
     }
 }

@@ -1,6 +1,9 @@
 <?php
 
 abstract class BaseController {
+    public $templatesPath = BASE_HOST . IMAGE_PATH . '/templates';
+    public $memesPath = BASE_HOST . IMAGE_PATH . '/memes';
+
     protected $controllerName;
     protected $actionName;
     protected $layoutName = DEFAULT_LAYOUT;

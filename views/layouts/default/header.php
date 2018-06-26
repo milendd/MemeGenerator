@@ -6,7 +6,8 @@
         <?php if (isset($this->title)) echo htmlspecialchars($this->title) ?>
     </title>
     
-    <link rel="stylesheet" type="text/css" href="<?= BASE_HOST ?>/content/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="<?= BASE_HOST . CSS_PATH ?>/styles.css" />
+    <link rel="stylesheet" type="text/css" href="<?= BASE_HOST . CSS_PATH ?>/memes.css" />
 </head>
 <body>
     <div id="nav">

@@ -1,5 +1,6 @@
 body {
     background: white; /*#88dad3;*/
+    min-height: 90vh;
 }
 
 #nav, main, footer {
@@ -49,9 +50,11 @@ body {
     color: #662;
 }
 
+main {
+    min-height: 78vh;
+}
+
 footer {
-   position: absolute;
-   bottom: 0;
    width: 90%;
 }
 
