@@ -5,7 +5,7 @@ body {
 
 #nav, main, footer {
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 #nav {
@@ -64,7 +64,7 @@ button, input, textarea {
 
 .nav {
     float: left;
-    line-height: 30px;
+    line-height: 36px;
 }
 
 .navbar-brand {
@@ -77,7 +77,7 @@ button, input, textarea {
 
 #user-settings {
     float: right;
-    line-height: 30px;
+    line-height: 38px;
 }
 
 .logout-form {

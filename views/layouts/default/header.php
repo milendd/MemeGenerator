@@ -19,7 +19,7 @@
             <?php if ($this->isLoggedIn) :?>
                 <strong>Hello, <?php echo htmlspecialchars($_SESSION['user']); ?>!</strong>
                 <form action="<?= BASE_HOST ?>/account/logout" class="logout-form">
-                    <input type="submit" value="Logout"/>
+                    <input type="submit" value="Logout" class="btn" />
                 </form>
             <?php else: ?>
                 <a href="<?= BASE_HOST ?>/account/login">Login</a>
