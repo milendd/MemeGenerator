@@ -19,12 +19,14 @@ class AccountModel extends BaseModel {
             return false;
         }
     
-        $statement = self::$db->prepare("SELECT COUNT(id) FROM users WHERE username = ?");
+        $statement = self::$db->prepare("SELECT COUNT(id) AS 'count' FROM users WHERE username = ?");
         $statement->bind_param("s", $username);
         $statement->execute();
         $result = $statement->get_result()->fetch_assoc();
+
+        var_dump($result);
         
-        if ($result['COUNT(id)']) {
+        if ($result['count']) {
             return false;
         }
         

@@ -1,4 +1,4 @@
-<?php if (isset($this->memes)) :?>
+<?php if (isset($this->memes) && count($this->memes) > 0) :?>
     <?php foreach ($this->memes as $meme): ?>
         <div class="meme-container">
             <img alt="<?= $meme['title'] ?>" class="mini"
