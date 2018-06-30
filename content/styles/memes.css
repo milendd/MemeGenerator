@@ -1,9 +1,34 @@
-.meme-container {
+.meme-container-small {
     display: inline-block;
 }
 
-.meme-container img.mini {
+.meme-container-small img.mini {
     width: 160px;
     height: 160px;
     margin: 0px 15px 15px 0px;
+}
+
+.meme-container-large {
+    width: 600px;
+    margin: 15px auto;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.meme-container-large img.large {
+    width: 60%;
+    float: left;
+}
+
+.meme-container-large .right-content {
+    width: 37%;
+    float: right;
+    text-align: left;
+}
+
+.meme-container-large .meme-title {
+    font-size: 20px;
+    font-weight: bold;
 }

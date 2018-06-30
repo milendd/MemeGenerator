@@ -2,7 +2,7 @@
 
 class MemeModel extends BaseModel {
     public function getAll() {
-        $statement = self::$db->query($this->mainQuery);
+        $statement = self::$db->query("SELECT * from v_memes");
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
 

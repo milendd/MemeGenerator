@@ -4,6 +4,6 @@
     <div>Email: <?= htmlspecialchars($this->selectedUser['email']); ?></div>
 
     <h2>Memes</h2>
-    <?php include_once('views/layouts/memes.php'); ?>
+    <?php include_once('views/layouts/memes/displaySmall.php'); ?>
 
 <?php endif;?>

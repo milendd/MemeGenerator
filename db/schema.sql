@@ -67,7 +67,7 @@ INSERT INTO `memes` (`id`, `file_name`, `title`, `created_at`, `user_id`) VALUES
 (1, '2byhpu7f.jpg', 'First meme :)', '2018-06-26 18:33:21', 1),
 (2, '1f764fb0.jpg', 'Just engineering', '2018-06-27 19:03:25', 3),
 (3, 'd93ksQ9f.jpg', 'Every time you are trying to get the bus', '2018-06-27 19:05:03', 3),
-(4, 'gv0q2Bq9.png', 'Then you have been coding for too long', '2018-06-27 19:06:56', 1);
+(4, 'gv0q2Bq9.png', 'When you have been coding for too long', '2018-06-27 19:06:56', 1);
 
 -- --------------------------------------------------------
 

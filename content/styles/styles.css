@@ -1,5 +1,5 @@
 body {
-    background: white; /*#88dad3;*/
+    background: #e7e7e7;
     min-height: 90vh;
 }
 
@@ -22,6 +22,10 @@ body {
     display: inline-block;
     border-radius: 10px;
     text-align: left;
+}
+
+.center {
+    text-align: center;
 }
 
 .msg.info {
@@ -56,6 +60,10 @@ main {
 
 footer {
    width: 90%;
+}
+
+footer h2 {
+    margin-bottom: 5px;
 }
 
 button, input, textarea {
