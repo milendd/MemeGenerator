@@ -149,6 +149,23 @@ a.btn {
     text-decoration: none;
 }
 
+.left-template-container {
+    float: left;
+    width: 47%;
+}
+
+.right-template-container {
+    float: right;
+    width: 47%;
+}
+
+.template-select {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    cursor: pointer;
+}
+
 .template-img {
     width: 300px;
 }
