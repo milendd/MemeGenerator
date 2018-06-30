@@ -18,6 +18,24 @@
             ?>
             <div>posted on <?= $formatedDate ?></div>
         </div>
+
+        <div class="comment-section">
+            <?php if (isset($this->comments) && count($this->comments) > 0):
+                    foreach ($this->comments as $comment): ?>
+                        <div class="comment">
+                            <div class="comment-text">
+                                <?= htmlspecialchars($comment[1]) ?>
+                            </div>
+                            <div class="comment-author">
+                                <?= htmlspecialchars($comment[5]) ?>
+                            </div>
+                        </div>
+                    <?php endforeach;
+                    else:
+                        echo "Kill me";
+                    endif;
+                ?>
+        </div>
     </div>
 
 <?php endif;?>

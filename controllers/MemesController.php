@@ -17,6 +17,12 @@ class MemesController extends BaseController {
             $this->addErrorMessage("No such meme!");
             return;
         }
+
+        $this->comments = $this->commentModel->getAll($id);
+        if (!isset($this->comments)) {
+            $this->addErrorMessage("No comments.");
+            return;
+        }        
     }
 
     public function create() {
