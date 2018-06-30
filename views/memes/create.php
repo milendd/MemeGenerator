@@ -19,6 +19,8 @@
         <?php endforeach ?>
     </div>
 
+    <div class="clearfix"></div>
+
 </div>
 
 <script>
