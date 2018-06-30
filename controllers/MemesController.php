@@ -19,8 +19,8 @@ class MemesController extends BaseController {
         }
 
         $this->comments = $this->commentModel->getAll($id);
-        if (!isset($this->comments)) {
-            $this->addErrorMessage("No comments.");
+        if (!isset($this->comments) || count($this->comments) == 0) {
+            $this->comments = "No comments";
             return;
         }        
     }

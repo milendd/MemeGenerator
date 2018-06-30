@@ -18,24 +18,38 @@
             ?>
             <div>posted on <?= $formatedDate ?></div>
         </div>
-
-        <div class="comment-section">
-            <?php if (isset($this->comments) && count($this->comments) > 0):
-                    foreach ($this->comments as $comment): ?>
-                        <div class="comment">
-                            <div class="comment-text">
-                                <?= htmlspecialchars($comment[1]) ?>
-                            </div>
-                            <div class="comment-author">
-                                <?= htmlspecialchars($comment[5]) ?>
-                            </div>
-                        </div>
-                    <?php endforeach;
-                    else:
-                        echo "Kill me";
-                    endif;
-                ?>
+    </div>
+    <div class="comment-section">
+        <div class="comment-section-title">
+            <?php 
+            if (is_string($this->comments)) {
+                echo $this->comments;
+            } else {
+                if (isset($this->comments) && count($this->comments) > 0) {
+                    echo count($this->comments);
+                    if (count($this->comments) == 1){
+                        echo " comment";
+                    } else {
+                        echo " comments";
+                    }
+                }
+            } ?>
         </div>
+        <?php if (isset($this->comments) && count($this->comments) > 0):
+                foreach ($this->comments as $comment): ?>
+                    <div class="comment">
+                        <div class="comment-text">
+                            <?= htmlspecialchars($comment[1]) ?>
+                        </div>
+                        <div class="comment-author">
+                            <?= htmlspecialchars($comment[5]) ?>
+                        </div>
+                    </div>
+                <?php endforeach;
+                else:
+                    echo "Issue loading comments";
+                endif;
+            ?>
     </div>
 
 <?php endif;?>
