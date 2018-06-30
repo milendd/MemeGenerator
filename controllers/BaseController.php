@@ -34,7 +34,7 @@ abstract class BaseController {
                 $viewName = $this->actionName;
             }
             
-            $viewFileName = "views/$this->controllerName/$viewName.php";
+            $viewFileName = "views/$this->controllerName/$viewName.php"; // TODO: this should be moved a bit lower
             if ($includeLayout) {
                 $headerFile = "views/layouts/$this->layoutName/header.php";
                 include_once($headerFile);

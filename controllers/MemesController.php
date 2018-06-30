@@ -2,9 +2,11 @@
 
 class MemesController extends BaseController {
     private $memeModel;
+    private $commentModel;
 
     public function onInit() {
         $this->memeModel = new MemeModel();
+        $this->commentModel = new CommentModel();
     }
     
     public function view($id = 0) {
