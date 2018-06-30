@@ -24,8 +24,6 @@ class AccountModel extends BaseModel {
         $statement->execute();
         $result = $statement->get_result()->fetch_assoc();
 
-        var_dump($result);
-        
         if ($result['count']) {
             return false;
         }

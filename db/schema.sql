@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 04:27 PM
+-- Generation Time: Jun 30, 2018 at 08:17 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 --
 
 INSERT INTO `comments` (`id`, `comment`, `created_at`, `meme_id`, `user_id`) VALUES
-(1, 'Looks good', '2018-06-30 12:04:12', 4, 2),
+(1, 'Looks good', '2018-06-30 12:04:12', 4, 3),
 (2, 'The next is comming too.', '2018-06-30 12:04:38', 4, 1);
 
 -- --------------------------------------------------------
@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `file_name` varchar(200) NOT NULL,
+  `positions` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
@@ -95,13 +96,13 @@ CREATE TABLE IF NOT EXISTS `templates` (
 -- Dumping data for table `templates`
 --
 
-INSERT INTO `templates` (`id`, `name`, `file_name`) VALUES
-(1, 'Distracted Boyfriend', '1.png'),
-(2, 'Two Buttons', '2.png'),
-(3, 'Expanding Brain', '3.png'),
-(4, 'Mocking Spongebob', '4.png'),
-(5, 'Batman Slapping Robin', '5.png'),
-(6, 'Roll Safe Think About It', '6.png');
+INSERT INTO `templates` (`id`, `name`, `file_name`, `positions`) VALUES
+(1, 'Distracted Boyfriend', '1.png', '{\"data\":[{\"text\":\"top text\",\"x\":400,\"y\":300},{\"text\":\"bottom text\",\"x\":300,\"y\":300},{\"text\":\"more text\",\"x\":400,\"y\":400}]}'),
+(2, 'Two Buttons', '2.png', NULL),
+(3, 'Expanding Brain', '3.png', NULL),
+(4, 'Mocking Spongebob', '4.png', NULL),
+(5, 'Batman Slapping Robin', '5.png', NULL),
+(6, 'Roll Safe Think About It', '6.png', NULL);
 
 -- --------------------------------------------------------
 

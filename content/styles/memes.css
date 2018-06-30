@@ -43,5 +43,11 @@
 #create-canvas {
     display: inline-block;
     width: 100%;
-    height: 1000px;
+    height: 500px;
+}
+
+.positions-input {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    width: 50%;
 }

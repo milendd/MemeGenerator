@@ -26,7 +26,7 @@ class MemesController extends BaseController {
         $this->templates = $this->templateModel->getAll();
 	
 		if ($this->isPost()) {
-            var_dump('hello from post');
+            var_dump($_POST);
             // $title = $_POST['title'];
             // if ($this->categoriesModel->create($title)) {
             //     $this->addInfoMessage("category created.");
