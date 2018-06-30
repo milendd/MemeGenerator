@@ -145,7 +145,7 @@ a.btn {
 
 .btn:focus, .btn:hover {
     color: #212529;
-    background-color: #e2e6ea;
+    background-color: #d6d6d6;
     text-decoration: none;
 }
 

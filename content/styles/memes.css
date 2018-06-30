@@ -8,8 +8,11 @@
     margin: 0px 15px 15px 0px;
 }
 
-.meme-container-large {
+.fixed-container {
     width: 600px;
+}
+
+.meme-container-large {
     margin: 15px auto;
     background: white;
     padding: 20px;
@@ -28,7 +31,11 @@
     text-align: left;
 }
 
-.meme-container-large .meme-title {
+.meme-title {
     font-size: 20px;
     font-weight: bold;
+}
+
+.meme-title a {
+    text-decoration: none;
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2018 at 09:27 PM
+-- Generation Time: Jun 30, 2018 at 02:06 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -40,7 +40,15 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`id`),
   KEY `fk_comments_memes_idx` (`meme_id`),
   KEY `fk_comments_users_idx` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `comment`, `created_at`, `meme_id`, `user_id`) VALUES
+(1, 'Looks good', '2018-06-30 12:04:12', 4, 2),
+(2, 'The next is comming too.', '2018-06-30 12:04:38', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +122,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `pass_hash`, `email`, `is_admin`) VALUES
 (1, 'milen_d', '$2y$10$dPGVMfTYS278qbwHqWpcy.D2eJnNQzsyqZHdykKqN5Oc1JXKw4ZGC', 'milen_d@test.bg', b'1'),
 (3, 'hristo', '$2y$10$EMhf05V6pKU7uUDLXecehOLkh9WAuyoS20mYXV4ekopoFiSnYog.a', 'hristo@test.bg', b'0');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 
 --
 -- Structure for view `v_memes`

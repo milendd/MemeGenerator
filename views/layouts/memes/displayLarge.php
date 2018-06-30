@@ -1,10 +1,16 @@
 <?php if (isset($this->memes) && count($this->memes) > 0) :?>
     <?php foreach ($this->memes as $meme): ?>
-        <div class="meme-container-large">
-            <img alt="<?= $meme['title'] ?>" class="large"
-                src="<?= $this->memesPath . '/' . $meme['username'] . '/' . $meme['file_name'] ?>" />
+        <?php $currentMemePath = BASE_HOST . "/memes/view/" . $meme['meme_id'] ?>
+
+        <div class="meme-container-large fixed-container">
+            <a href="<?= $currentMemePath ?>"> 
+                <img alt="<?= $meme['title'] ?>" class="large"
+                    src="<?= $this->memesPath . '/' . $meme['username'] . '/' . $meme['file_name'] ?>" />
+            </a>
             <div class="right-content">
-                <div class="meme-title"><?= htmlspecialchars($meme['title']) ?></div>
+                <div class="meme-title">
+                    <a href="<?= $currentMemePath ?>"><?= htmlspecialchars($meme['title']) ?></a>
+                </div>
                 <div class="meme-userinfo">
                     <div>
                         <span>by </span>
