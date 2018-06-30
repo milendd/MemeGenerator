@@ -22,8 +22,8 @@
                     <input type="submit" value="Logout" class="btn" />
                 </form>
             <?php else: ?>
-                <a href="<?= BASE_HOST ?>/account/login">Login</a>
-                <a href="<?= BASE_HOST ?>/account/register">Register</a>
+                <a class="btn" href="<?= BASE_HOST ?>/account/login">Login</a>
+                <a class="btn" href="<?= BASE_HOST ?>/account/register">Register</a>
             <?php endif; ?>
         </div>
 

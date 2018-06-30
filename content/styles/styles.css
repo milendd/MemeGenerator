@@ -120,6 +120,10 @@ button, input, textarea {
     border-radius: 4px;
 }
 
+a.btn {
+    text-decoration: none;
+}
+
 .btn {
     color: #333;
     background-color: #fff;
