@@ -8,12 +8,14 @@
     
     <link rel="stylesheet" type="text/css" href="<?= BASE_HOST . CSS_PATH ?>/styles.css" />
     <link rel="stylesheet" type="text/css" href="<?= BASE_HOST . CSS_PATH ?>/memes.css" />
+    <script src="<?= BASE_HOST . SCRIPTS_PATH ?>/jquery-3.2.1.slim.min.js"></script>
 </head>
 <body>
     <div id="nav">
         <a class="nav navbar-brand" href="<?= BASE_HOST ?>">Meme generator</a>
         <a class="nav navbar-nav" href="<?= BASE_HOST ?>/users">Users</a>
         <a class="nav navbar-nav" href="<?= BASE_HOST ?>/templates">Templates</a>
+        <a class="nav navbar-nav" href="<?= BASE_HOST ?>/memes/create">Create</a>
 
         <div id="user-settings">
             <?php if ($this->isLoggedIn) :?>

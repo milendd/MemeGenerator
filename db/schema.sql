@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 02:06 PM
+-- Generation Time: Jun 30, 2018 at 04:27 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -89,14 +89,19 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `name` varchar(200) NOT NULL,
   `file_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `templates`
 --
 
 INSERT INTO `templates` (`id`, `name`, `file_name`) VALUES
-(1, 'Distracted Boyfriend', '1.png');
+(1, 'Distracted Boyfriend', '1.png'),
+(2, 'Two Buttons', '2.png'),
+(3, 'Expanding Brain', '3.png'),
+(4, 'Mocking Spongebob', '4.png'),
+(5, 'Batman Slapping Robin', '5.png'),
+(6, 'Roll Safe Think About It', '6.png');
 
 -- --------------------------------------------------------
 
@@ -122,12 +127,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `pass_hash`, `email`, `is_admin`) VALUES
 (1, 'milen_d', '$2y$10$dPGVMfTYS278qbwHqWpcy.D2eJnNQzsyqZHdykKqN5Oc1JXKw4ZGC', 'milen_d@test.bg', b'1'),
 (3, 'hristo', '$2y$10$EMhf05V6pKU7uUDLXecehOLkh9WAuyoS20mYXV4ekopoFiSnYog.a', 'hristo@test.bg', b'0');
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
 
 --
 -- Structure for view `v_memes`
@@ -135,6 +134,11 @@ COMMIT;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_memes`  AS  select `m`.`id` AS `meme_id`,`m`.`file_name` AS `file_name`,`m`.`title` AS `title`,`m`.`created_at` AS `created_at`,`u`.`id` AS `user_id`,`u`.`username` AS `username` from (`memes` `m` join `users` `u` on((`m`.`user_id` = `u`.`id`))) order by `m`.`id` desc ;
 
+--
+-- Structure for view `v_comments`
+--
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_comments`  AS  select `c`.`id` AS `id`,`c`.`comment` AS `comment`,`c`.`created_at` AS `created_at`,`c`.`meme_id` AS `meme_id`,`c`.`user_id` AS `user_id`,`u`.`username` AS `username` from (`comments` `c` join `users` `u` on((`c`.`user_id` = `u`.`id`))) ;
 
 COMMIT;
 
