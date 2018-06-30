@@ -35,6 +35,7 @@
                 }
             } ?>
         </div>
+        <hr>
         <?php if (isset($this->comments) && count($this->comments) > 0):
                 foreach ($this->comments as $comment): ?>
                     <div class="comment">

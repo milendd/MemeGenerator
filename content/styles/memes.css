@@ -32,7 +32,7 @@
 }
 
 .meme-title {
-    font-size: 20px;
+    font-size: 35px;
     font-weight: bold;
 }
 
@@ -50,4 +50,36 @@
     margin-top: 7px;
     margin-bottom: 7px;
     width: 50%;
+}
+
+.comment-section {
+    margin: 15px auto;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.comment-section-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.comment {
+    background: #e7e7e7;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 3px;
+}
+
+.comment-text {
+    font-size: 20px;
+}
+
+.comment-author {
+    font-style: italic;
+}
+
+.comment-author::before {
+    content: "By ";
 }
