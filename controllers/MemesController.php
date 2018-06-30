@@ -32,14 +32,14 @@ class MemesController extends BaseController {
         $this->templates = $this->templateModel->getAll();
 	
 		if ($this->isPost()) {
-            var_dump($_POST);
+            // var_dump($_POST);
             // $title = $_POST['title'];
-            // if ($this->categoriesModel->create($title)) {
-            //     $this->addInfoMessage("category created.");
-            //     $this->redirect("categories");
+            // if ($this->memeModel->create($title)) {
+            //     $this->addSuccessMessage('Meme created.');
+            //     $this->redirect('home');
             // } 
 			// else {
-            //     $this->addErrorMessage("Could not create category! It should be non-empty or already exists!");
+            //     $this->addErrorMessage('Could not create category!');
             // }
         }
 	}
