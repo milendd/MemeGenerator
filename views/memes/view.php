@@ -36,6 +36,15 @@
             } ?>
         </div>
         <hr>
+        <?php
+            if ($this->isLoggedIn()): ?>
+                <form class="comment-write" action="">
+                    <textarea placeholder="Напишете своя коментар тук"></textarea>
+                    <input type="submit">
+                </form>
+                <hr>
+            <?php endif
+        ?>
         <?php if (isset($this->comments) && count($this->comments) > 0):
                 foreach ($this->comments as $comment): ?>
                     <div class="comment">
@@ -46,6 +55,13 @@
                             <a href="<?= BASE_HOST . "/users/view/" . $comment[4] ?>">
                                 <?= htmlspecialchars($comment[5]) ?>
                             </a>
+                        </div>
+                        <?php 
+                            $currentDate = new DateTime($comment[2]);
+                            $formatedDate = $currentDate->format(CUSTOM_DATE_FORMAT);
+                        ?>
+                        <div class="comment-date">
+                            <?= htmlspecialchars($formatedDate) ?>
                         </div>
                     </div>
                 <?php endforeach;

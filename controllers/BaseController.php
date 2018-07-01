@@ -88,6 +88,10 @@ abstract class BaseController {
         }
     }
 
+    function isLoggedIn() {
+        return $this->isLoggedIn;
+    }
+
     function addInfoMessage($msg) {
         $this->addMessage($msg, 'info');
     }

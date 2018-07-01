@@ -65,6 +65,22 @@
     font-weight: bold;
 }
 
+.comment-write textarea{
+    display: block;
+    width: 90%;
+    height: 150px;
+    padding: 1em;
+    resize: none;
+    border-radius: 12px;
+}
+
+.comment-write input[type="submit"]{
+    display: inline-block;
+    background-color: #e7e7e7;
+    border-radius: 8px;
+    #float: right;
+}
+
 .comment {
     background: #e7e7e7;
     border-radius: 8px;
@@ -74,12 +90,17 @@
 
 .comment-text {
     font-size: 20px;
+    padding: 5px;
 }
 
-.comment-author {
+.comment-author, .comment-date {
     font-style: italic;
 }
 
 .comment-author::before {
     content: "By ";
+}
+
+.comment-date::before {
+    content: "Posted at: ";
 }
