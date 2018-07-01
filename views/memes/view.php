@@ -43,7 +43,9 @@
                             <?= htmlspecialchars($comment[1]) ?>
                         </div>
                         <div class="comment-author">
-                            <?= htmlspecialchars($comment[5]) ?>
+                            <a href="<?= BASE_HOST . "/users/view/" . $comment[4] ?>">
+                                <?= htmlspecialchars($comment[5]) ?>
+                            </a>
                         </div>
                     </div>
                 <?php endforeach;
