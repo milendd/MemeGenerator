@@ -38,12 +38,21 @@
         <hr>
         <?php
             if ($this->isLoggedIn()): ?>
-                <form class="comment-write" action="">
-                    <textarea placeholder="Напишете своя коментар тук"></textarea>
-                    <input type="submit">
+                <form class="comment-write" method="post">
+                    <textarea name="newComment" placeholder="Напишете своя коментар тук"></textarea>
+                    <input type="submit" name="submit" onclick="<?php ?>">
                 </form>
                 <hr>
             <?php endif
+        ?>
+        <?php
+            if (isset($_POST["submit"])) {
+                $URL = $_SERVER['REQUEST_URI'];
+                preg_match("/\/(\d+)$/", $URL, $matches);
+                $memeID = $matches[1];
+
+                $this->createComment($_POST["newComment"], $memeID);
+            }
         ?>
         <?php if (isset($this->comments) && count($this->comments) > 0):
                 foreach ($this->comments as $comment): ?>

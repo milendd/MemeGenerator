@@ -13,6 +13,15 @@ class AccountModel extends BaseModel {
         
         return false;
     }
+
+    public function getID($username){
+        $statement = self::$db->prepare("SELECT id FROM users WHERE username = ?");
+        $statement->bind_param("s", $username);
+        $statement->execute();
+        $result = $statement->get_result()->fetch_assoc();
+
+        return $result;
+    }
     
     public function register($username, $password, $email) {
         if (!isset($username) || strlen($username) < 3 || strlen($email) < 5) {

@@ -14,8 +14,10 @@ class AccountController extends BaseController {
             $email = $_POST['email'];
             
             if ($this->accountModel->register($username, $password, $email)) {
+                // TODO: call login here
                 $_SESSION['user'] = $username;
-                $this->addSuccessMessage("Registration successfull!");
+                $_SESSION['userID'] = $this->accountModel->getID($username);
+                $this->addSuccessMessage("Registration successful!");
                 $this->redirect("home");
             }
             else {
@@ -31,7 +33,8 @@ class AccountController extends BaseController {
             
             if ($this->accountModel->login($username, $password)) {
                 $_SESSION['user'] = $username;
-                $this->addSuccessMessage("Login successfull!");
+                $_SESSION['userID'] = $this->accountModel->getID($username);
+                $this->addSuccessMessage("Login successful!");
                 $this->redirect("home");
             }
             else {

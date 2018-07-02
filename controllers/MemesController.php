@@ -43,4 +43,9 @@ class MemesController extends BaseController {
             // }
         }
 	}
+
+    public function createComment($commentText, $memeID){
+        $this->authorize('You are not allowed to write comments! Login first!');
+        $this->commentModel->create($commentText, $memeID);
+    }
 }
