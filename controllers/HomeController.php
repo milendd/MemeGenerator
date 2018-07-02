@@ -3,7 +3,7 @@
 class HomeController extends BaseController {
     private $memeModel;
 
-	public function onInit() {
+    public function onInit() {
         $this->title = "Home";
         $this->memeModel = new MemeModel();
     }
