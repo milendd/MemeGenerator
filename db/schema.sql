@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 08:17 PM
+-- Generation Time: Jul 02, 2018 at 11:21 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`id`),
   KEY `fk_comments_memes_idx` (`meme_id`),
   KEY `fk_comments_users_idx` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `comments`
@@ -48,7 +48,12 @@ CREATE TABLE IF NOT EXISTS `comments` (
 
 INSERT INTO `comments` (`id`, `comment`, `created_at`, `meme_id`, `user_id`) VALUES
 (1, 'Looks good', '2018-06-30 12:04:12', 4, 3),
-(2, 'The next is comming too.', '2018-06-30 12:04:38', 4, 1);
+(2, 'The next is comming too.', '2018-06-30 12:04:38', 4, 1),
+(3, 'hello', '2018-07-02 18:02:32', 4, 1),
+(4, 'h2', '2018-07-02 18:12:41', 4, 1),
+(5, 'hello from heere', '2018-07-02 18:14:51', 4, 1),
+(6, 'popopop', '2018-07-02 18:15:30', 4, 1),
+(7, 'asdfasdfasdf', '2018-07-02 18:27:16', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -60,12 +65,12 @@ DROP TABLE IF EXISTS `memes`;
 CREATE TABLE IF NOT EXISTS `memes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_name` varchar(200) NOT NULL,
-  `title` varchar(500) NOT NULL,
+  `title` varchar(500) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_memes_users_idx` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `memes`
@@ -75,7 +80,8 @@ INSERT INTO `memes` (`id`, `file_name`, `title`, `created_at`, `user_id`) VALUES
 (1, '2byhpu7f.jpg', 'First meme :)', '2018-06-26 18:33:21', 1),
 (2, '1f764fb0.jpg', 'Just engineering', '2018-06-27 19:03:25', 3),
 (3, 'd93ksQ9f.jpg', 'Every time you are trying to get the bus', '2018-06-27 19:05:03', 3),
-(4, 'gv0q2Bq9.png', 'When you have been coding for too long', '2018-06-27 19:06:56', 1);
+(4, 'gv0q2Bq9.png', 'When you have been coding for too long', '2018-06-27 19:06:56', 1),
+(6, '7ba213de81.png', '<br>', '2018-07-02 21:20:34', 1);
 
 -- --------------------------------------------------------
 

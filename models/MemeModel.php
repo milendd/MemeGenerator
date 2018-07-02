@@ -21,4 +21,16 @@ class MemeModel extends BaseModel {
         $statement->execute();
         return $statement->get_result()->fetch_assoc();
     }
+
+    public function create($title, $filename) {
+        $statement = self::$db->prepare(
+            "INSERT INTO memes (title, file_name, user_id) VALUES (?, ?, ?)"
+        );
+        
+        $userID = $_SESSION['userID'];
+        $statement->bind_param("ssi", $title, $filename, $userID);
+
+        $statement->execute();
+        return $statement->affected_rows > 0;
+    }
 }

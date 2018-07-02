@@ -29,18 +29,31 @@ class MemesController extends BaseController {
         $this->authorize('You are not allowed to create memes! Login first!');
         $this->title = 'Create meme';
 
-        $this->templates = $this->templateModel->getAll();
-    
         if ($this->isPost()) {
-            // var_dump($_POST);
-            // $title = $_POST['title'];
-            // if ($this->memeModel->create($title)) {
-            //     $this->addSuccessMessage('Meme created.');
-            //     $this->redirect('home');
-            // } 
-            // else {
-            //     $this->addErrorMessage('Could not create category!');
-            // }
+            $base64 = $_POST['imgBase64'];
+
+            list($type, $data) = explode(';', $base64);
+            list(, $data)      = explode(',', $base64);
+            $data = base64_decode($data);
+
+            $encoded = sha1($data);
+            $filename = substr($encoded, 0, 10) . '.png';
+
+            $username = $_SESSION['user'];
+            $path = ltrim(IMAGE_PATH, '/') . '/memes/' . $username . '/' . $filename;
+            file_put_contents($path, $data);
+
+            $title = $_POST['title'];
+            if ($this->memeModel->create($title, $filename)) {
+                $this->addSuccessMessage('Meme created.');
+                $this->redirect('home');
+            } 
+            else {
+                $this->addErrorMessage('Could not create meme!');
+            }
+        }
+        else {
+            $this->templates = $this->templateModel->getAll();
         }
     }
 

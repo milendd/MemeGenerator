@@ -57,6 +57,13 @@ $(function() {
         };
     };
 
+    $('#submit-meme').click(function () {
+        var dataURL = canvas.toDataURL();
+        $('#imgBase64').val(dataURL);
+        var form = $('#meme-form')[0];
+        form.submit();
+    });
+
     $('.template-select').click(function () {
         imgSource = $(this).attr('src');
         clearPositions();

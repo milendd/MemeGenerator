@@ -14,13 +14,14 @@
             </span>
         <?php endforeach ?>
 
-        <form method="post" action="<?= BASE_HOST ?>/memes/create">
+        <form method="post" id="meme-form" action="<?= BASE_HOST ?>/memes/create">
             Title:
             <div>
                 <input type="text" class="custom-input" name="title" />
             </div>
             <div class="positions-container"></div>
-            <input type="button" value="Create meme" class="btn" style="margin-top:10px;" />
+            <input type="hidden" id="imgBase64" name="imgBase64" />
+            <input type="button" id="submit-meme" value="Create meme" class="btn" style="margin-top:10px;" />
         </form>
         
     </div>
