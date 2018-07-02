@@ -30,22 +30,33 @@ class MemesController extends BaseController {
         $this->title = 'Create meme';
 
         $this->templates = $this->templateModel->getAll();
-	
-		if ($this->isPost()) {
+    
+        if ($this->isPost()) {
             // var_dump($_POST);
             // $title = $_POST['title'];
             // if ($this->memeModel->create($title)) {
             //     $this->addSuccessMessage('Meme created.');
             //     $this->redirect('home');
             // } 
-			// else {
+            // else {
             //     $this->addErrorMessage('Could not create category!');
             // }
         }
-	}
+    }
 
-    public function createComment($commentText, $memeID){
+    public function createComment() {
         $this->authorize('You are not allowed to write comments! Login first!');
-        $this->commentModel->create($commentText, $memeID);
+        if ($this->isPost()) {
+            $commentText = $_POST['newComment'];
+            $memeId = (int) $_POST['memeId'];
+
+            if ($this->commentModel->create($commentText, $memeId)) {
+                $this->addSuccessMessage('Comment created.');
+                $this->redirect('memes', 'view', [ $memeId ]);
+            } 
+            else {
+                $this->addErrorMessage('Could not create comment!');
+            }
+        }
     }
 }

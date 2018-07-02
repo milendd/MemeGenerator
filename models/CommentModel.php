@@ -2,7 +2,7 @@
 
 class CommentModel extends BaseModel {
 	public function getAll($memeID){
-        $statement = self::$db->prepare("SELECT * FROM v_comments WHERE meme_id = ?");
+        $statement = self::$db->prepare("SELECT * FROM v_comments WHERE meme_id = ? ORDER BY id DESC");
         $statement->bind_param("i", $memeID);
         $statement->execute();
 
@@ -14,15 +14,13 @@ class CommentModel extends BaseModel {
             return false;
         }
         $statement = self::$db->prepare(
-            "INSERT INTO comments (`comment`, `meme_id`, `user_id`) VALUES(?, ?, ?)"
-            );
-        $statement->bind_param("s", $commentText);
-        $statement->bind_param("i", $memeID);
-        $userID = $_SESSION['userID']['id'];
-        $statement->bind_param("i", $userID);
+            "INSERT INTO comments (comment, meme_id, user_id) VALUES (?, ?, ?)"
+        );
+        
+        $userID = $_SESSION['userID'];
+        $statement->bind_param("sii", $commentText, $memeID, $userID);
 
         $statement->execute();
-        echo $statement->affected_rows > 0;
         return $statement->affected_rows > 0;
     }
 }
