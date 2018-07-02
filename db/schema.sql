@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `templates` (
 --
 
 INSERT INTO `templates` (`id`, `name`, `file_name`, `positions`) VALUES
-(1, 'Distracted Boyfriend', '1.png', '{\"data\":[{\"text\":\"top text\",\"x\":400,\"y\":300},{\"text\":\"bottom text\",\"x\":300,\"y\":300},{\"text\":\"more text\",\"x\":400,\"y\":400}]}'),
+(1, 'Distracted Boyfriend', '1.png', '{\"data\":[{\"text\":\"top text\",\"x\":140,\"y\":380},{\"text\":\"bottom text\",\"x\":420,\"y\":300},{\"text\":\"more text\",\"x\":580,\"y\":400}]}'),
 (2, 'Two Buttons', '2.png', NULL),
 (3, 'Expanding Brain', '3.png', NULL),
 (4, 'Mocking Spongebob', '4.png', NULL),

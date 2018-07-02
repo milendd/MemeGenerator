@@ -1,20 +1,65 @@
 $(function() {
     var $canvas = $('#create-canvas');
     var canvas = $canvas[0];
+    window.context = canvas.getContext("2d");
     var originalWidth = 600.0;
+    window.imgSource = "";
+    window.img = new Image();
+    window.positionsObj = {};
+    window.positions = [];
+
+    // TODO: remove
+    window.showPositionsObj = function () {
+        console.log(positionsObj);
+    };
+
+    window.showPositions = function () {
+        console.log(positions);
+    };
 
     var createInputsFromPositions = function(obj) {
-        var data = obj.data;
-        for (var i = 0; i < data.length; i++) {
-            var name = data[i].text;
-            var t = $("<input type='text' class='custom-input positions-input' placeholder='" + name + "' name='text[" + i  + "]' />");
+        positions = obj.data;
+        for (var i = 0; i < positions.length; i++) {
+            var name = positions[i].text;
+            var t = $("<input type='text' class='custom-input positions-input' placeholder='" + name + "' name='text_" + i  + "' />");
             $('.positions-container').append(t);
         }
+
+        attachListeners();
+    };
+
+    window.reloadCanvas = function () {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        img.src = imgSource;
+
+        img.onload = function () {
+            context.drawImage(img, 0, 0, this.width, this.height, 0, 0, canvas.width, canvas.height);
+
+            var inputs = $('.positions-input');
+            for (var i = 0; i < inputs.length; i++) {
+                var input = $(inputs[i]);
+                var key = input.attr('name');
+                var value = input.val();
+                setPosition(key, value);
+    
+                var index = parseInt(key.substr(5)); // Removes 'text_'
+                var currentPosition = positions[index];
+                var x = currentPosition.x;
+                var y = currentPosition.y;
+    
+                context.fillStyle = 'white';
+                context.strokeStyle = 'black';
+                context.lineWidth = 2;
+                context.font = 'bold 36px Arial';
+                context.fillText(value, x, y);
+                context.strokeText(value, x, y);
+            }
+        };
     };
 
     $('.template-select').click(function () {
-        var source = $(this).attr('src');
-        var ctx = canvas.getContext("2d");
+        imgSource = $(this).attr('src');
+        clearPositions();
 
         $('.positions-container').html('');
         var positions = $(this).siblings('.template-positions').val();
@@ -23,7 +68,7 @@ $(function() {
             createInputsFromPositions(objPositions);
         }
 
-        var img = new Image();
+        img = new Image();
         img.onload = function() {
             canvas.width = this.width;
             canvas.height = this.height;
@@ -48,10 +93,24 @@ $(function() {
             $canvas.css('width', resultWidth + 'px');
             $canvas.css('height', resultHeight + 'px');
 
-            ctx.drawImage(this, 0, 0, this.width, this.height, 0, 0, canvas.width, canvas.height);
+            context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
         };
 
-        img.src = source;
+        img.src = imgSource;
     });
 
+    var attachListeners = function () {
+        $('.positions-input').keyup(function (e) {
+            reloadCanvas();
+        });
+    };
+    
+    var clearPositions = function () {
+        positionsObj = {};
+        positions = [];
+    };
+
+    var setPosition = function (key, value) {
+        positionsObj[key] = value;
+    };
 });
