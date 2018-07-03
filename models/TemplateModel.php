@@ -14,6 +14,7 @@ class TemplateModel extends BaseModel {
     }
 
     public function add($memeName, $memeFileName) {
+        // TODO: $defaultPositionData;
         $statement = self::$db->prepare(
             "INSERT INTO templates (name, file_name) VALUES (?, ?)"
         );
