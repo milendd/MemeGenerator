@@ -4,8 +4,9 @@
 
         <div class="meme-container-small">
             <a href="<?= $currentMemePath ?>"> 
-                <img alt="<?= $meme['title'] ?>" class="mini"
-                    src="<?= $this->memesPath . '/' . $meme['username'] . '/' . $meme['file_name'] ?>" />
+                <img alt="<?= htmlspecialchars($meme['title']) ?>" class="mini"
+                    src="<?= $this->memesPath . '/' . htmlspecialchars($meme['username']) .
+                    '/' . htmlspecialchars($meme['file_name']) ?>" />
             </a>
         </div>
 

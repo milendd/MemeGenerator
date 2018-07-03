@@ -40,7 +40,13 @@ class MemesController extends BaseController {
             $filename = substr($encoded, 0, 10) . '.png';
 
             $username = $_SESSION['user'];
-            $path = ltrim(IMAGE_PATH, '/') . '/memes/' . $username . '/' . $filename;
+            $directoryPath = ltrim(IMAGE_PATH, '/') . '/memes/' . $username;
+            
+            if (!file_exists($directoryPath) && !is_dir($directoryPath)) {
+                mkdir($directoryPath);
+            }
+
+            $path = $directoryPath . '/' . $filename;
             file_put_contents($path, $data);
 
             $title = $_POST['title'];
