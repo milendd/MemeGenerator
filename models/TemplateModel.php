@@ -20,6 +20,9 @@ class TemplateModel extends BaseModel {
         );
         
         $userID = $_SESSION['userID'];
+        if (empty($memeName)) {
+            $memeName = "Unnamed and lonely meme";
+        }
         $statement->bind_param("ss", $memeName, $memeFileName);
 
         $statement->execute();
