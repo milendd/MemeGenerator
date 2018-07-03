@@ -3,21 +3,24 @@
 <form method="post" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
+    Meme name:
+    <input type="text" name="meme-name" id="meme-name">
     <input type="submit" class="btn" value="Upload Image" name="submit">
 </form>
 
 <?php
 if ($this->isPost()) {
     $target_dir = "";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $largestNumber = $this->getLastID();
+    $extention = pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION);
+    $target_file = $target_dir . ($largestNumber + 1) . '.' . $extention;
+    
     $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } 
         else {
@@ -38,10 +41,10 @@ if ($this->isPost()) {
     }
 
     // Allow certain file formats
-    if ($imageFileType != "jpg" && 
-        $imageFileType != "png" && 
-        $imageFileType != "jpeg" && 
-        $imageFileType != "gif" ) {
+    if ($extention != "jpg" && 
+        $extention != "png" && 
+        $extention != "jpeg" && 
+        $extention != "gif" ) {
             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
     }
@@ -57,6 +60,7 @@ if ($this->isPost()) {
 
         if (is_dir($upload_dir) && is_writable($upload_dir)) {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $full_path)) {
+                $this->add($_POST["meme-name"], $target_file);
                 echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
             } 
             else {
